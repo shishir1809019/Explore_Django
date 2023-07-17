@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+{%block body%}
+<form  method="post" action="" style="width: 50%; margin: auto;" novalidate>
+    <h3>Change password</h3>
+    {% csrf_token %}
+        {%if form.non_field_errors%}
+        {%for er in form.non_field_errors%}
+        <p class="bg-danger text-white p-2">{{er}}</p>
+        {%endfor%}
+        {%endif%}
+        {% for fm in form %}
+            {{fm.label_tag}}
+            <!-- <br> -->
+            <!-- {{fm|as_crispy_field }} -->
+            {{fm}}
+            <!-- <br> -->
+            {{fm.errors | striptags}}
+            <!-- <br> -->
+        {% endfor %}
+        <br>
+        <button class="btn btn-primary" type="submit">Change Password</button>
+    </form>
+{%endblock%}

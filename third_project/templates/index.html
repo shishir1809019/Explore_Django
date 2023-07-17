@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>django</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{%static 'css/first.css'%}" />
+  </head>
+  <body>
+    <h1>This is django page!</h1>
+    <a href="phitron.io">this is link</a>
+    <img src="{%static 'image/tree.jpg'%}" alt="this is tree" />
+    <img
+      src="{%get_static_prefix%}image/capture_photo.jpg"
+      alt="photo_capture"
+    />
+
+    <script src="{%static 'js/index.js'%}"></script>
+  </body>
+</html>

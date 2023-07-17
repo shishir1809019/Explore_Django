@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+<div style="width: 80%; margin: auto;">
+    <h3>Books List: </h1>
+    {% if data %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Book Name</th>
+            <!-- <th scope="col">Author Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">First Publication</th>
+            <th scope="col">Last Publication</th>
+            <th scope="col">Actions</th> -->
+        </tr>
+        </thead>
+        <tbody>
+        {%for item in data%}
+        <tr>
+            <th scope="row">{{item.id}}</th>
+            <td><a href="{%url 'book_details' item.id%}">{{item.book_name}}</a></td>
+            <!-- <td>{{item.author}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.first_pub}}</td>
+            <td>{{item.last_pub}}</td> -->
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    {%else%}
+    <h4>No data available</h4>
+    {%endif%}
+</div>
+{% endblock %}
+
+<!-- <td><a href="{% url 'edit_book' id=item.id %}" class="btn btn-warning btn-sm">Edit</a> <a href="{% url 'delete_book' id=item.id %}" class="btn btn-danger btn-sm">Delete</a> </td> -->
